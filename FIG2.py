@@ -171,7 +171,7 @@ chg_sss_co2gl = np.concatenate((chg_sss_co2gl[:,lon_2d_i[0,:]>30], chg_sss_co2gl
 ############################## plot SSS change CO2 - CTL ##############################
 #######################################################################################
 m = Basemap(projection='cea', llcrnrlat=-90,urcrnrlat=90, llcrnrlon=-329.5,urcrnrlon=29.5,resolution='c')
-#fig, axes = plt.subplots(nrows=2, ncols=2, figsize = (10,6))
+plt.rcParams.update({'font.family':'Arial'})
 fig = plt.figure(figsize = (12,4.8))
 x, y = m(lon_2d, lat_2d)
 levels_sss = np.arange(-0.8,0.9,0.1) 
@@ -186,8 +186,8 @@ m.drawparallels(np.arange(int(-60),int(90),30),labels=[1,0,0,0], linewidth = 0, 
 m.drawparallels(np.array([0]),labels=[0,0,0,0], linewidth = 1, ax = ax)
 m.drawmeridians(np.arange(int(0),int(360),60),labels=[0,0,0,0], linewidth = 0, ax = ax)
 m.fillcontinents(color='grey', ax = ax)
-ax.text(-0.1, 1.1, 'b', transform=ax.transAxes, fontsize=11, weight='bold')
-ax.set_title('OHC (10$^{9}$ J m$^{-2}$)', fontsize = 11, loc = 'left')  
+ax.text(-0.1, 1.1, 'b', transform=ax.transAxes, fontsize=10, weight='bold')
+ax.set_title('OHC (10$^{9}$ J m$^{-2}$)', fontsize = 10, loc = 'left')  
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -207,8 +207,8 @@ m.drawparallels(np.arange(int(-60),int(90),30),labels=[1,0,0,0], linewidth = 0, 
 m.drawparallels(np.array([0]),labels=[1,0,0,0], linewidth = 1, ax = ax)
 m.drawmeridians(np.arange(int(0),int(360),60),labels=[0,0,0,0], linewidth = 0, ax = ax)
 m.fillcontinents(color='grey', ax = ax)
-ax.text(-0.1, 1.1, 'c', transform=ax.transAxes, fontsize=11, weight='bold')
-ax.set_title('SSS (psu)', fontsize = 11, loc = 'left') 
+ax.text(-0.1, 1.1, 'c', transform=ax.transAxes, fontsize=10, weight='bold')
+ax.set_title('SSS (psu)', fontsize = 10, loc = 'left') 
 # colorbar
 axins = inset_axes(ax,
                   width="3.5%",  # width = 10% of parent_bbox width
@@ -232,8 +232,8 @@ m.drawparallels(np.arange(int(-60),int(90),30),labels=[1,0,0,0], linewidth = 0, 
 m.drawparallels(np.array([0]),labels=[0,0,0,0], linewidth = 1, ax = ax)
 m.drawmeridians(np.arange(int(0),int(360),60),labels=[0,0,0,1], linewidth = 0, ax = ax)
 # m.fillcontinents(color='grey', ax = ax)
-ax.text(-0.1, 1.1, 'd', transform=ax.transAxes, fontsize=11, weight='bold')
-ax.set_title('P-E (mm d$^{-1}$)', fontsize = 11, loc = 'left')  
+ax.text(-0.1, 1.1, 'd', transform=ax.transAxes, fontsize=10, weight='bold')
+ax.set_title('P-E (mm d$^{-1}$)', fontsize = 10, loc = 'left')  
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -264,11 +264,11 @@ ax.plot(years, (netrad_toa_2co2std - netrad_toa_ctl)[5:], marker=None,linestyle 
 ax.plot(years, (netrad_toa_2co2gl - netrad_toa_ctlgl)[5:], marker=None,linestyle = '--',color='blue',label = 'Net Rad (nudging)')
 #ax.plot(years, netrad_toa_2co2atl - netrad_toa_ctlatl, marker=None,color='red',label = 'ATL nudging')
 #ax.plot(years, netrad_toa_2co2nonatl - netrad_toa_ctlnonatl, marker=None,color='tab:brown',label = 'NonATL nudging')
-ax.tick_params(axis="y", labelsize=11, colors = 'blue')
-ax.tick_params(axis="x", labelsize=11)
+ax.tick_params(axis="y", labelsize=10, colors = 'blue')
+ax.tick_params(axis="x", labelsize=10)
 #ax2.spines['right'].set_linestyle((0, (5, 5)))
 #ax2.spines['left'].set_linestyle('-')
-label = ax.set_ylabel('W m$^{-2}$', fontsize = 11)
+label = ax.set_ylabel('W m$^{-2}$', fontsize = 10)
 label.set_color('blue')
 ax.set_ylim((0.2, 1.37))
 ax.set_xlim((100., 200))
@@ -284,24 +284,24 @@ ax2.plot(years, chg_ohc_gl[0:100], marker=None, linestyle = '--', color='red',la
 #ax.plot(years, chg_ohc_atl[0:100], marker=None, color='red',label = 'ATL nudging')
 #ax.plot(years, chg_ohc_nonatl[0:100], marker=None, color='tab:brown',label = 'NonATL nudging')
 #ax.set_title('(c)', fontsize = 11, loc = 'left')
-ax2.text(-0.12, 1.025, 'a', transform=ax.transAxes, fontsize=11, weight='bold')
+ax2.text(-0.12, 1.025, 'a', transform=ax.transAxes, fontsize=10, weight='bold')
 
 #ax.legend(fontsize = 11)
-ax.set_xlabel('Year', fontsize = 11)
-label = ax2.set_ylabel('10$^{24}$ J', fontsize = 11)
+ax.set_xlabel('Year', fontsize = 10)
+label = ax2.set_ylabel('10$^{24}$ J', fontsize = 10)
 label.set_color('red')
-ax2.tick_params(axis="y", labelsize=11, colors='red')
+ax2.tick_params(axis="y", labelsize=10, colors='red')
 ax2.set_ylim((0., 1.4))
 ax2.spines['right'].set_color('red')
 ax2.spines['left'].set_color('blue')
 
-ax2.text(106, 1.1, 'OHC', color = 'red', fontsize = 11)
-ax2.text(106, 1.2, 'TOA Net Radiation', color = 'blue', fontsize = 11)
+ax2.text(106, 1.1, 'OHC', color = 'red', fontsize = 10)
+ax2.text(106, 1.2, 'TOA Net Radiation', color = 'blue', fontsize = 10)
 
 plt.subplots_adjust(wspace= 0.10)
 plt.subplots_adjust(hspace= 0.34)
 
-plt.savefig('FIG2_1st_review.pdf', bbox_inches='tight')
+plt.savefig('FIG2.pdf', bbox_inches='tight')
 
 
 
