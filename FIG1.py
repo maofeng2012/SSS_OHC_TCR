@@ -43,8 +43,6 @@ yr_end = 210
 years = np.arange(yr_start, yr_end, 1)
 ax.plot(years,(surfT_2co2std - surfT_ctl), marker=None,color='blue',linestyle = '-', label = 'STD')
 ax.plot(years,(surfT_2co2gl - surfT_ctlgl), marker=None,color='blue',linestyle = '--', label = 'GL nudging')
-#ax.legend(fontsize = 11, loc='lower left', bbox_to_anchor=(-0.1, -0.38), ncol = 4)
-#ax.set_title('Surf Temp', fontsize = 11, loc = 'left')
 ax.set_xlabel('Year', fontsize = 7)
 ax.set_ylabel('K', fontsize = 7)
 ax.tick_params(axis="x", labelsize=7)
@@ -58,9 +56,6 @@ tcr_2co2gl = np.str(np.round((surfT_2co2gl - np.nanmean(surfT_ctlgl))[years == 1
 ax.text(105, 2.1, 'TCR (STD) = '+tcr_2co2std+' K', color = 'black')
 ax.text(105, 1.8, 'TCR (fixed-SSS-GL) = '+tcr_2co2gl+' K', color = 'black')
 ax.text(163.6, 0.3, 'CO$_{2}$ doubles', color = 'grey', rotation = 90)
-#ax.text(-0.17, 1.03, 'a', transform=ax.transAxes, fontsize=11, weight='bold')
-plt.subplots_adjust(wspace= 0.27)
-#plt.subplots_adjust(hspace= 0.5)
 plt.savefig('FIG1_Surf_Temp_changes_{2CO2STD-2CO2GL}.pdf', bbox_inches='tight')
 
 
