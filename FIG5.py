@@ -368,6 +368,7 @@ OHC_nonatl = np.array([mean_diff_ohc_std_gl_all[1], mean_diff_ohc_std_gl_lt300[1
                     mean_diff_ohc_std_gl_300_700[1], mean_diff_ohc_std_gl_700_2000[1], \
                     mean_diff_ohc_std_gl_gt2000[1]])
 
+
 #######################################################################################            
 ################### plot cross sections of temp and salt GL - STD #####################
 #######################################################################################
@@ -383,6 +384,7 @@ def new_cmap(levels):
     return cmap_f
 
 fig, axes = plt.subplots(nrows=4, ncols=2, figsize = (11,9.5))
+plt.rcParams.update({'font.family':'Arial'})
 #fig = plt.subplots(figsize = (12,9.5))
 ## ax 0, 0
 lats_2d, levs_2d = np.meshgrid(lats, levs)
@@ -398,10 +400,10 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0,2000))
 ax.invert_yaxis()
 ax.set_ylabel('Depth (m)')
-#ax.set_title('S (psu; $\Delta$(standard) - $\Delta$(nudging))', fontsize=12, loc = 'left')
-ax.set_title('S (10$^\mathrm{6}$ psu·m; Atlantic; FLOR)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'a', transform=ax.transAxes, fontsize=12, weight='bold')
-ax.text(0.10, 1.25, 'Model response to CO2 doubling', transform=ax.transAxes, fontsize=14)
+#ax.set_title('S (psu; $\Delta$(standard) - $\Delta$(nudging))', fontsize = 10, loc = 'left')
+ax.set_title('S (10$^\mathrm{6}$ psu·m; Atlantic; FLOR)', fontsize = 10, loc = 'left')
+ax.text(-0.12, 1.05, 'a', transform=ax.transAxes, weight='bold')
+ax.text(0.20, 1.25, 'Model response to CO$_2$ doubling', transform=ax.transAxes, fontsize=10, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -432,9 +434,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0, 2000))
 ax.invert_yaxis()
 ax.set_ylabel('Depth (m)')
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize=12, loc = 'left')
-ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m; Atlantic; FLOR)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'b', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize = 10, loc = 'left')
+ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m; Atlantic; FLOR)', fontsize = 10, loc = 'left')
+ax.text(-0.12, 1.05, 'b', transform=ax.transAxes, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -464,9 +466,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0,2000))
 ax.invert_yaxis()
 ax.set_ylabel('Depth (m)')
-#ax.set_title('S (psu;  $\Delta$(standard))', fontsize=12, loc = 'left')
-ax.set_title('S (10$^\mathrm{6}$ psu·m; Non-Atlantic; FLOR)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('S (psu;  $\Delta$(standard))', fontsize = 10, loc = 'left')
+ax.set_title('S (10$^\mathrm{6}$ psu·m; Non-Atlantic; FLOR)', fontsize = 10, loc = 'left')
+ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -492,9 +494,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0, 2000))
 ax.invert_yaxis()
 ax.set_ylabel('Depth (m)')
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize=12, loc = 'left')
-ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m; Non-Atlantic; FLOR)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'd', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize = 10, loc = 'left')
+ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m; Non-Atlantic; FLOR)', fontsize = 10, loc = 'left')
+ax.text(-0.12, 1.05, 'd', transform=ax.transAxes, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -519,9 +521,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
                    '20$^\mathrm{o}$N','40$^\mathrm{o}$N','60$^\mathrm{o}$N'])
 ax.set_ylim((0,2000))
 ax.invert_yaxis()
-ax.set_title('S (10$^\mathrm{6}$ psu·m/50yr; Atlantic; NCEI)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, fontsize=12, weight='bold')
-ax.text(0.35, 1.25, 'Observation', transform=ax.transAxes, fontsize=14)
+ax.set_title('S (10$^\mathrm{6}$ psu·m/50yr; Atlantic; NCEI)', fontsize = 10, loc = 'left')
+ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, weight='bold')
+ax.text(0.40, 1.25, 'Observation', transform=ax.transAxes, fontsize=10, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -552,8 +554,8 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0,2000))
 ax.invert_yaxis()
 #ax.set_ylabel('Depth (m)')
-ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m/50yr; Atlantic; NCEI)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'f', transform=ax.transAxes, fontsize=12, weight='bold')
+ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m/50yr; Atlantic; NCEI)', fontsize = 10, loc = 'left')
+ax.text(-0.12, 1.05, 'f', transform=ax.transAxes, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -579,8 +581,8 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
                    '20$^\mathrm{o}$N','40$^\mathrm{o}$N','60$^\mathrm{o}$N'])
 ax.set_ylim((0,2000))
 ax.invert_yaxis()
-ax.set_title('S (10$^\mathrm{6}$ psu·m/50yr; Non-Atlantic; NCEI)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'g', transform=ax.transAxes, fontsize=12, weight='bold')
+ax.set_title('S (10$^\mathrm{6}$ psu·m/50yr; Non-Atlantic; NCEI)', fontsize = 10, loc = 'left')
+ax.text(-0.12, 1.05, 'g', transform=ax.transAxes, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -606,8 +608,8 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0,2000))
 ax.invert_yaxis()
 #ax.set_ylabel('Depth (m)')
-ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m/50yr; Non-Atlantic; NCEI)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'h', transform=ax.transAxes, fontsize=12, weight='bold')
+ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m/50yr; Non-Atlantic; NCEI)', fontsize = 10, loc = 'left')
+ax.text(-0.12, 1.05, 'h', transform=ax.transAxes, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -622,7 +624,9 @@ cbar.ax.tick_params()
 
 plt.subplots_adjust(wspace = 0.39)
 plt.subplots_adjust(hspace = 0.42)
-plt.savefig('FIG5_1st_review.pdf', bbox_inches='tight')
+plt.savefig(fig_dir+'FIG5.pdf', bbox_inches='tight')
+
+
 
 
  
