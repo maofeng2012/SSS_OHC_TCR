@@ -243,6 +243,7 @@ chg_temp_cs_nonatl_gl = temp_cs_nonatl_co2gl - temp_cs_nonatl_ctlgl
 #######################################################################################
 fig, axes = plt.subplots(nrows=3, ncols=2, figsize = (12,7.5))
 #fig = plt.subplots(figsize = (12,4.5))
+plt.rcParams.update({'font.family':'Arial'})
 lats_2d, levs_2d = np.meshgrid(lats, levs)
 
 ## ax 0, 0
@@ -259,9 +260,9 @@ ax.set_ylim((0, 2000))
 ax.set_ylabel('Depth (m)')
 ax.invert_yaxis()
 ax.text(-0.1, 1.1, 'a', transform=ax.transAxes, fontsize=11, weight='bold')
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize=12, loc = 'left')
-ax.set_title('$\u03C1$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Atlantic)', fontsize=12, loc = 'left')
-#ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize=10, loc = 'left')
+ax.set_title('$\u03C1$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Atlantic)', fontsize=10, loc = 'left')
+#ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, fontsize=10, weight='bold')
 
 ax = axes[0, 1]
 contours = ax.contourf(lats_2d, levs_2d, -temp_cs_nonatl_gl + temp_cs_nonatl_std, levels = levels, cmap='RdBu_r',extend='both', alpha = 1)
@@ -274,9 +275,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0, 2000))
 ax.invert_yaxis()
 ax.text(-0.1, 1.1, 'b', transform=ax.transAxes, fontsize=11, weight='bold')
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize=12, loc = 'left')
-ax.set_title('$\u03C1$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Non-Atlantic)', fontsize=12, loc = 'left')
-#ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize=10, loc = 'left')
+ax.set_title('$\u03C1$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Non-Atlantic)', fontsize=10, loc = 'left')
+#ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, fontsize=10, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -304,9 +305,9 @@ ax.set_ylim((0, 2000))
 ax.set_ylabel('Depth (m)')
 ax.invert_yaxis()
 ax.text(-0.1, 1.1, 'c', transform=ax.transAxes, fontsize=11, weight='bold')
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize=12, loc = 'left')
-ax.set_title('$\u03C1_{S}$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Atlantic)', fontsize=12, loc = 'left')
-#ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize=10, loc = 'left')
+ax.set_title('$\u03C1_{S}$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Atlantic)', fontsize=10, loc = 'left')
+#ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, fontsize=10, weight='bold')
 
 ax = axes[1, 1]
 contours = ax.contourf(lats_2d, levs_2d, -temp_cs_nonatl_beta_gl + temp_cs_nonatl_beta_std, levels = levels, cmap='RdBu_r',extend='both', alpha = 1)
@@ -319,9 +320,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0, 2000))
 ax.invert_yaxis()
 ax.text(-0.1, 1.1, 'd', transform=ax.transAxes, fontsize=11, weight='bold')
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize=12, loc = 'left')
-ax.set_title('$\u03C1_{S}$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Non-Atlantic)', fontsize=12, loc = 'left')
-#ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize=10, loc = 'left')
+ax.set_title('$\u03C1_{S}$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Non-Atlantic)', fontsize=10, loc = 'left')
+#ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, fontsize=10, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -333,6 +334,8 @@ axins = inset_axes(ax,
                    )
 cbar = plt.colorbar(contours, ax=ax, cax = axins, ticks = np.arange(-8, 10, 1))
 cbar.ax.tick_params()
+
+
 
 ## ax 2, 0
 ax = axes[2, 0]
@@ -348,9 +351,9 @@ ax.set_ylim((0, 2000))
 ax.set_ylabel('Depth (m)')
 ax.invert_yaxis()
 ax.text(-0.1, 1.1, 'e', transform=ax.transAxes, fontsize=11, weight='bold')
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize=12, loc = 'left')
-ax.set_title('$\u03C1_{T}$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Atlantic)', fontsize=12, loc = 'left')
-#ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize=10, loc = 'left')
+ax.set_title('$\u03C1_{T}$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Atlantic)', fontsize=10, loc = 'left')
+#ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, fontsize=10, weight='bold')
 
 ax = axes[2, 1]
 contours = ax.contourf(lats_2d, levs_2d, -temp_cs_nonatl_alpha_gl + temp_cs_nonatl_alpha_std, levels = levels, cmap='RdBu_r',extend='both', alpha = 1)
@@ -363,9 +366,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0, 2000))
 ax.invert_yaxis()
 ax.text(-0.1, 1.1, 'f', transform=ax.transAxes, fontsize=11, weight='bold')
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize=12, loc = 'left')
-ax.set_title('$\u03C1_{T}$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Non-Atlantic)', fontsize=12, loc = 'left')
-#ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize=10, loc = 'left')
+ax.set_title('$\u03C1_{T}$ (10$^\mathrm{6}$ kg m$^\mathrm{-2}$; Non-Atlantic)', fontsize=10, loc = 'left')
+#ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, fontsize=10, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -380,7 +383,7 @@ cbar.ax.tick_params()
 
 plt.subplots_adjust(wspace = 0.18)
 plt.subplots_adjust(hspace = 0.37)
-plt.savefig('FIG4_Density_integral_ATL_NonATL.pdf', bbox_inches='tight')
+plt.savefig('FIG4.pdf', bbox_inches='tight')
 
 
 
