@@ -358,16 +358,17 @@ OHC_nonatl = np.array([mean_diff_ohc_std_gl_all[1], mean_diff_ohc_std_gl_lt300[1
 #######################################################################################
 #fig, axes = plt.subplots(nrows=2, ncols=2, figsize = (11,5))
 fig = plt.subplots(figsize = (12,7.5))
+plt.rcParams.update({'font.family':'Arial'})
 ## ax 0, 0-1
 ax = plt.subplot2grid((3, 2), (0, 0), colspan=2, rowspan = 1)
 x = np.arange(0, 5, 1)
-bar_plot = ax.bar(x-0.15, OHC_all, 0.15, label='Globe')
-bar_plot = ax.bar(x, OHC_atl, 0.15, label='Atlantic')
-bar_plot = ax.bar(x+0.15, OHC_nonatl, 0.15, label='Non-Atlantic')
-ax.legend(fontsize = 11,frameon=False)
-ax.set_ylabel('10$^\mathrm{24}$ J', fontsize=11)
-ax.set_title('OHC', loc = 'left', fontsize=12)
-ax.text(0.6, 0.15, 'The impact of fixed SSS on model response to CO2 doubling', fontsize=15)
+bar_plot = ax.bar(x-0.15, OHC_all, 0.15, label='Globe', color = '#00a088')
+bar_plot = ax.bar(x, OHC_atl, 0.15, label='Atlantic', color = '#4dbbd6')
+bar_plot = ax.bar(x+0.15, OHC_nonatl, 0.15, label='Non-Atlantic', color = '#e64b34')
+ax.legend(fontsize = 10,frameon=False)
+ax.set_ylabel('10$^\mathrm{24}$ J', fontsize=10)
+ax.set_title('OHC', loc = 'left', fontsize=10)
+ax.text(0.9, 0.15, 'The impact of fixed SSS on model response to CO$_2$ doubling', fontsize=10, weight='bold')
 ax.set_xticks(x)
 #ax.set_yticks(np.arange(-1, 6, 1))
 ax.set_ylim(-0.06,0.11)
@@ -376,8 +377,8 @@ x1 = np.arange(-0.4, 4.7, 0.1)
 y1 = 0 * np.arange(-0.4, 4.7, 0.1)
 ax.plot(x1, y1, '-', color = 'gray', linewidth = 0.5)
 ax.set_xlim((-0.4, 4.4))
-ax.tick_params(labelsize = 11)
-ax.text(-0.05, 1.05, 'a', transform=ax.transAxes, fontsize=12, weight='bold')
+ax.tick_params(labelsize = 10)
+ax.text(-0.05, 1.05, 'a', transform=ax.transAxes, fontsize=10, weight='bold')
 
 ## plot Atlantic mask
 axin = inset_axes(ax,
@@ -409,7 +410,7 @@ ocean_mask_plot[ocean_mask_plot == 3] = 1 # Non-ATtlantic
 
 x, y = m(lons_2d_plot, lats_2d_plot)
 levels = np.arange(0,3,1) 
-cmap = ListedColormap(['tab:green', 'tab:orange'])
+cmap = ListedColormap(['#4dbbd6', '#e64b34'])
 
 contours = m.contourf(x, y,ocean_mask_plot,cmap=cmap, levels = levels, ax = axin)
 m.drawcoastlines(ax = axin, linewidth = 0.2, color = 'black')
@@ -449,9 +450,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0,2000))
 ax.invert_yaxis()
 ax.set_ylabel('Depth (m)')
-#ax.set_title('S (psu; $\Delta$(standard) - $\Delta$(nudging))', fontsize=12, loc = 'left')
-ax.set_title('S (10$^\mathrm{6}$ psu·m; Atlantic)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'b', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('S (psu; $\Delta$(standard) - $\Delta$(nudging))', fontsize=10, loc = 'left')
+ax.set_title('S (10$^\mathrm{6}$ psu·m; Atlantic)', fontsize=10, loc = 'left')
+ax.text(-0.12, 1.05, 'b', transform=ax.transAxes, fontsize=10, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -461,7 +462,7 @@ axins = inset_axes(ax,
                    bbox_transform=ax.transAxes,
                    borderpad=0,
                    )
-cbar = plt.colorbar(contours, ax=ax, cax = axins, ticks = np.arange(-4,5.,1.))
+cbar = plt.colorbar(contours, ax=ax, cax = axins, ticks = np.arange(-4,6.,2.))
 cbar.ax.tick_params()
 
 
@@ -477,9 +478,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
                    '20$^\mathrm{o}$N','40$^\mathrm{o}$N','60$^\mathrm{o}$N'])
 ax.set_ylim((0, 2000))
 ax.invert_yaxis()
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize=12, loc = 'left')
-ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m; Atlantic)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard) - $\Delta$(nudging))', fontsize=10, loc = 'left')
+ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m; Atlantic)', fontsize=10, loc = 'left')
+ax.text(-0.12, 1.05, 'c', transform=ax.transAxes, fontsize=10, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -489,7 +490,7 @@ axins = inset_axes(ax,
                    bbox_transform=ax.transAxes,
                    borderpad=0,
                    )
-cbar = plt.colorbar(contours, ax=ax, cax = axins, ticks = np.arange(-8, 10, 2))
+cbar = plt.colorbar(contours, ax=ax, cax = axins, ticks = np.arange(-8, 12, 4))
 cbar.ax.tick_params()
 
 
@@ -515,9 +516,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
 ax.set_ylim((0,2000))
 ax.invert_yaxis()
 ax.set_ylabel('Depth (m)')
-#ax.set_title('S (psu;  $\Delta$(standard))', fontsize=12, loc = 'left')
-ax.set_title('S (10$^\mathrm{6}$ psu·m;  Non-Atlantic)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'd', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('S (psu;  $\Delta$(standard))', fontsize=10, loc = 'left')
+ax.set_title('S (10$^\mathrm{6}$ psu·m;  Non-Atlantic)', fontsize=10, loc = 'left')
+ax.text(-0.12, 1.05, 'd', transform=ax.transAxes, fontsize=10, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -527,7 +528,7 @@ axins = inset_axes(ax,
                    bbox_transform=ax.transAxes,
                    borderpad=0,
                    )
-cbar = plt.colorbar(contours, ax=ax, cax = axins, ticks = np.arange(-4,5.,1.))
+cbar = plt.colorbar(contours, ax=ax, cax = axins, ticks = np.arange(-4,6.,2.))
 cbar.ax.tick_params()
 
 
@@ -543,9 +544,9 @@ ax.set_xticklabels(['60$^\mathrm{o}$S','40$^\mathrm{o}$S','20$^\mathrm{o}$S','0$
                    '20$^\mathrm{o}$N','40$^\mathrm{o}$N','60$^\mathrm{o}$N'])
 ax.set_ylim((0, 2000))
 ax.invert_yaxis()
-#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize=12, loc = 'left')
-ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m; Non-Atlantic)', fontsize=12, loc = 'left')
-ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, fontsize=12, weight='bold')
+#ax.set_title('T ($^\mathrm{o}$C; $\Delta$(standard))', fontsize=10, loc = 'left')
+ax.set_title('T (10$^\mathrm{6}$ $^\mathrm{o}$C·m; Non-Atlantic)', fontsize=10, loc = 'left')
+ax.text(-0.12, 1.05, 'e', transform=ax.transAxes, fontsize=10, weight='bold')
 # colorbar
 axins = inset_axes(ax,
                    width="3.5%",  # width = 10% of parent_bbox width
@@ -555,12 +556,12 @@ axins = inset_axes(ax,
                    bbox_transform=ax.transAxes,
                    borderpad=0,
                    )
-cbar = plt.colorbar(contours, ax=ax, cax = axins, ticks = np.arange(-8, 10, 2))
+cbar = plt.colorbar(contours, ax=ax, cax = axins, ticks = np.arange(-8, 12, 4))
 cbar.ax.tick_params()
 
 plt.subplots_adjust(wspace = 0.32)
 plt.subplots_adjust(hspace = 0.42)
-plt.savefig('FIG3_1st_review.pdf', bbox_inches='tight')
+plt.savefig('FIG3.pdf', bbox_inches='tight')
 
 
 
