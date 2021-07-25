@@ -56,7 +56,7 @@ tcr_2co2gl = np.str(np.round((surfT_2co2gl - np.nanmean(surfT_ctlgl))[years == 1
 ax.text(105, 2.1, 'TCR (STD) = '+tcr_2co2std+' K', color = 'black')
 ax.text(105, 1.8, 'TCR (fixed-SSS-GL) = '+tcr_2co2gl+' K', color = 'black')
 ax.text(163.6, 0.3, 'CO$_{2}$ doubles', color = 'grey', rotation = 90)
-plt.savefig('FIG1_Surf_Temp_changes_{2CO2STD-2CO2GL}.pdf', bbox_inches='tight')
+plt.savefig('FIG1.pdf', bbox_inches='tight')
 
 
 
