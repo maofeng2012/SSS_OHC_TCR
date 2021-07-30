@@ -410,7 +410,7 @@ ocean_mask_plot[ocean_mask_plot == 3] = 1 # Non-ATtlantic
 
 x, y = m(lons_2d_plot, lats_2d_plot)
 levels = np.arange(0,3,1) 
-cmap = ListedColormap(['#4dbbd6', '#e64b34'])
+cmap = ListedColormap(['#e64b34', '#4dbbd6'])
 
 contours = m.contourf(x, y,ocean_mask_plot,cmap=cmap, levels = levels, ax = axin)
 m.drawcoastlines(ax = axin, linewidth = 0.2, color = 'black')
