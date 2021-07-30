@@ -1,2 +1,2 @@
 # SSS_OHC_TCR
-Python scripts for a) computing Atlantic meridional overturning circulation (AMOC) at 40 degree north and ocean heat content (OHC) and b) creating the main figures in Liu et al. (2021)
+The codes needed to set up the FLOR experiment and Python scripts used for analyses and producing main figures in Liu et al. (2021)
